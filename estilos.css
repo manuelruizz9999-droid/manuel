@@ -1,0 +1,90 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background: radial-gradient(circle, #350019, #08000d);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: Arial, sans-serif;
+}
+
+.full-screen{
+  width:100%;
+  height:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* CORAZÓN CSS */
+.heart{
+  position:relative;
+  width:40vmin;
+  height:40vmin;
+  background:#ff2d63;
+  transform:rotate(-45deg);
+  animation:beat 1.5s infinite;
+  cursor:pointer;
+  box-shadow:0 0 40px rgba(255,50,100,0.7);
+}
+
+.heart:before,
+.heart:after{
+  content:"";
+  position:absolute;
+  width:40vmin;
+  height:40vmin;
+  background:#ff2d63;
+  border-radius:50%;
+}
+
+.heart:before{
+  top:-20vmin;
+  left:0;
+}
+
+.heart:after{
+  left:20vmin;
+  top:0;
+}
+
+@keyframes beat{
+  0%{ transform:rotate(-45deg) scale(1); }
+  50%{ transform:rotate(-45deg) scale(1.18); }
+  100%{ transform:rotate(-45deg) scale(1); }
+}
+
+/* Texto */
+.message{
+  position:absolute;
+  bottom:12%;
+  left:50%;
+  transform:translateX(-50%) scale(0.7);
+  color:white;
+  font-size:4.5vmin;
+  opacity:0;
+  transition:0.5s ease;
+  text-shadow:0 0 20px rgba(255,50,100,1);
+}
+
+.message.show{
+  opacity:1;
+  transform:translateX(-50%) scale(1);
+}
+
+/* Partículas */
+.particle{
+  position:absolute;
+  font-size:20px;
+  pointer-events:none;
+  color:#ff4d7a;
+  text-shadow:0 0 15px rgba(255,60,120,0.8);
+}
